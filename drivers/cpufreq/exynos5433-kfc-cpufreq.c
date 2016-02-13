@@ -307,7 +307,7 @@ static void __init set_volt_table_CA7(void)
 				exynos5433_abb_table_CA7[i]);
 	}
 
-	max_support_idx_CA7 = L7;	/* 1.3GHz */
+	max_support_idx_CA7 = L5;	/* 1.5GHz */
 	min_support_idx_CA7 = L16;	/* 400MHz */
 	pr_info("CPUFREQ of CA7 max_freq : L%d %u khz\n", max_support_idx_CA7,
 		exynos5433_freq_table_CA7[max_support_idx_CA7].frequency);
@@ -394,7 +394,7 @@ int __init exynos5_cpufreq_CA7_init(struct exynos_dvfs_info *info)
 #ifdef CONFIG_SEC_PM
 	set_boot_kfc_qos_freq(info, L7);
 #else
-	/* booting frequency is 1.3GHz */
+	/* booting frequency is 1.5GHz */
 	info->boot_cpu_min_qos = exynos5433_freq_table_CA7[L7].frequency;
 	info->boot_cpu_max_qos = exynos5433_freq_table_CA7[L7].frequency;
 #endif
